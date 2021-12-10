@@ -17,9 +17,7 @@ if not db.createConnection():
     sys.exit(1)
 
 window = MainWindow()
-serverView = ServerTableView()
 
-window.setCentralWidget(serverView)
 window.show()
 
 sys.exit(app.exec_())

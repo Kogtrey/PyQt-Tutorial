@@ -8,12 +8,17 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtSql import *
 
+# Initializations
+
 db_location = Path('App\\Data\\ValheimServers.db').resolve()
 print(db_location.is_file())
 
-def exists():
+
+# Check if the database file exists
+def exists() -> bool:
     return db_location.is_file()
 
+# Create a conneciton to the database
 def createConnection() -> bool:
 
     print("Checking if database exists")
@@ -40,6 +45,7 @@ def createConnection() -> bool:
     print("Conneciton success")
     return True
 
+# Initialize database
 def init_db() -> bool:
     print("Creating temporary initializer connection")
     temp_con = QSqlDatabase.addDatabase("QSQLITE", connectionName="initializer")
